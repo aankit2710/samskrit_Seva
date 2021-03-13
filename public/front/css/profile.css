@@ -1,0 +1,131 @@
+.user_img .user_icon {
+    display: table;
+    text-align: center; 
+    vertical-align: middle;
+    padding: 0px 15px;
+    margin: 10px 0px;
+    position: relative; 
+}
+.user_icon {
+    width: 100%;
+    text-align: left;
+}
+.user_info .fa, .shrtcut_con .fa, .review_modify .fa
+{
+    color: #2874f0;
+    font-size: 20px;
+    vertical-align: middle;
+}
+.shrtcut_con
+{
+    margin: 15px 0px;
+}
+.shrtcut_con ul
+{
+    display: inline-flex;
+}
+.shrtcut_con ul li
+{
+    padding: 0 10px 0 0;
+    display: inline-flex;
+}
+.shrtcut_con ul li a
+{
+    padding: 0px 0px 0px 5px;
+}
+.user_icon img
+{
+    border-radius: 15px;
+}
+.edit_profile_btn
+{
+    border-radius: 3px;
+    box-shadow: 0 0 5px 0 #ccc;
+    margin: 25px 0;
+    padding: 8px 0;
+    text-align: center;
+    width: 100px;
+}
+.boots_box_with_head {
+    margin: 10px 0px;
+}
+.boots_box_with_head h2 {
+    padding: 15px;
+    background: #0061ff;
+    font-size: 16px;
+    color: #fff;
+}
+.boots_box_inner_content {
+    padding: 15px;
+    box-shadow: 0 0 5px 0 #ccc;
+}
+.sales_items
+{
+    border: 1px solid #ececec;
+    padding: 15px;
+    border-radius: 3px;
+}
+.item_heading
+{
+    margin: 5px 0px;
+}
+.item_created
+{
+    margin: 5px 0px;
+}
+.see_all_text
+{
+    width: 100%;
+    margin: 15px 0px;
+    padding: 0px 15px;
+    text-align: right;
+    float: right;   
+}
+.top_selling {
+    background: #fff;
+    overflow: hidden;
+}
+.sales_items .owl-prev
+{
+    background-position: 10px 0px !important;
+}
+.sales_items .owl-next
+{
+    background-position: -8px 0px !important;
+}
+.sales_items .owl-demo-item .item
+{
+    text-align: center;
+    margin: 2px;
+}
+.img-container
+{
+    border: 1px solid #ececec;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+.first_div, .second_div, .thired_div, .fourth_div, .clctn_con
+{
+    margin: 10px 0px 20px;
+}
+.sales_items .product_details {
+    text-align: center;
+}
+.sales_items .owl-controls.clickable {
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+.sales_items .owl-theme .owl-controls .owl-buttons div
+{
+    transform: unset;
+    width: 30px;
+    height: 88px;
+}
+.main-img-container {
+    text-align: center;
+}
+.sales_items .mainImage {
+    width: 150px;
+    text-align: center;
+}

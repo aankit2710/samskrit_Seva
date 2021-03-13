@@ -1,0 +1,44 @@
+backend admin
+1.  admin login -> done
+3.  banner module -> done
+4.  ad category module -> done
+15. inquiry moudle -> done
+13. our partners module ->done
+
+5.  news paper module
+6.  news paper rate module
+7.  bulk import module rate and newspaper
+9.  total customers module 
+10. total unverified customers
+16. subscibers module
+17. blog module
+2.  admin profile
+8.  total ad orders
+11. total earning 
+12. cms pages
+18. complain module 
+
+
+frontend user panel
+1. user registration 
+2. email and phone number verification
+3. profile update and account settings
+4. my previous orders
+5. my ongoing orders
+6. orders details
+7. order invoice
+8. order again
+9. raise ticket
+
+front end website
+1. seo freindly url
+2. news paper search by as per releasemyad
+3. twakto chat integration
+4. blog 
+
+inquiry field
+category ,state,city, ad-type(cd ,text-ad,display)
+
+Refrence website
+https://www.ads2book.com
+
