@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Result extends CI_Controller {
+class Reapear extends CI_Controller {
 
 	public function __construct(){
 		parent:: __construct();
 		$admin = $this->session->userdata('admin');
 
 		$this->load->helper('common_helper');
-		$this->load->model('Result_model');
+		$this->load->model('Reapear_model');
 		$this->load->model('Branch_model');
 		$this->load->library('form_validation');
 
@@ -31,19 +31,19 @@ class Result extends CI_Controller {
 			$year = $this->input->post('year');
 			$course = $this->input->post('course');
 
-			$getAllResult = $this->Result_model->getAllResult1($month,$year,$course);
+			$getAllResult = $this->Reapear_model->getAllResult1($month,$year,$course);
 			$data['getAllResult']=$getAllResult;
 
-			$getAllCourse = $this->Result_model->getAllCourse();
+			$getAllCourse = $this->Reapear_model->getAllCourse();
 			$data['getAllCourse'] = $getAllCourse;
 			$this->load->view('admin/reapear',$data);
 
 		}else{
 
-			$getAllCourse = $this->Result_model->getAllCourse();
+			$getAllCourse = $this->Reapear_model->getAllCourse();
 			$data['getAllCourse'] = $getAllCourse;
 
-			$getAllResult = $this->Result_model->getAllResult12();
+			$getAllResult = $this->Reapear_model->getAllResult12();
 			$data['getAllResult']=$getAllResult;
 
 			$this->load->view('admin/reapear',$data);
@@ -53,7 +53,7 @@ class Result extends CI_Controller {
 	public function filter()
 	{
 		$branch_id = $this->input->post('branch_id');
-		$getAllResult = $this->Result_model->getAllResult($branch_id);
+		$getAllResult = $this->Reapear_model->getAllResult($branch_id);
 		echo $getAllResult;	
 	}
 
@@ -68,7 +68,7 @@ class Result extends CI_Controller {
 		$form_array['COURSE'] = $input['COURSE'];
 		$id = $input['id'];
 
-		$create = $this->Result_model->update($id,$form_array);
+		$create = $this->Reapear_model->update($id,$form_array);
 	}
 
 }

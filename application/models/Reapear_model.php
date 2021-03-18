@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Result_model extends CI_Model {
+class Reapear_model extends CI_Model {
 
 
 	// public function getAllResult()
