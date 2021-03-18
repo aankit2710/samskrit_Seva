@@ -59,11 +59,11 @@ class Member_model extends CI_Model {
 		}
 		else if ( $select_type === 'failed')
 		{
-			$table_name = "praksopanam_jan_2021_results";
+			$table_name = "eligible_students_next_level";
 		}
 		else if ( $select_type === 'reappear')
 		{
-			$table_name = "praksopanam_jan_2021_results";
+			$table_name = "eligible_students_next_level";
 		}
 		$insert = $this->db->insert($table_name,$form_array);
 		return $this->db->insert_id();

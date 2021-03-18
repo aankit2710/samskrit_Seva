@@ -35,7 +35,7 @@ function create()
     return date_format($date,"Y-m-d");
   }
 
-
+if( $select_type == 'result' ){
   foreach($file_data as $row)
   {
     
@@ -55,6 +55,24 @@ function create()
       
     }
 
+  }
+}
+  else{
+    foreach($file_data as $row)
+  {
+    
+    $form_array['REG_NO'] = $row["REG_NO"];
+    $form_array['NAME']  = $row["NAME"];
+    $form_array['COURSE'] = $row["COURSE"];
+
+    $last_id = $this->Member_model->result($form_array,$select_type);
+
+    if($last_id)
+    {
+      
+    }
+
+  }
   }
 
   $this->session->set_flashdata('success','Imported Successfully');

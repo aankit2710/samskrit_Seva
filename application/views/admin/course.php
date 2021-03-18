@@ -189,7 +189,7 @@
    if(branch_id!="")
    {
     $.ajax({
-     url:"<?=base_url(); ?>admin/balancesheet/filter",
+     url:"<?=base_url(); ?>admin/result/filter",
      method:"POST",
      dataType:"html",
      data:{branch_id:branch_id},

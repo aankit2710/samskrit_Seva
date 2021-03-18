@@ -89,6 +89,18 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="<?=base_url().'admin/failed/index';?>" class="nav-link">
+                  <i class="far fa-circle nav-icon text-danger"></i>
+                  <p>Failed</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=base_url().'admin/reapear/index';?>" class="nav-link">
+                  <i class="far fa-circle nav-icon text-danger"></i>
+                  <p>Re-apear</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="<?=base_url().'admin/import';?>" class="nav-link">
                   <i class="far fa-circle nav-icon text-danger"></i>
                   <p>Import</p>

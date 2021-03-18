@@ -58,7 +58,7 @@
                echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>&times;</button>".$this->session->flashdata('success')."</div>";
              }
              ?>
-             <?=form_open_multipart('admin/balancesheet/index');?>
+             <?=form_open_multipart('admin/result/index');?>
              <div class="card-body">
               <div class="row">
                <div class="col-md-3">
@@ -95,7 +95,8 @@
                     $i=1;
                     foreach($getAllCourse as $Courses)
                     {
-                      echo "<option value=".$Courses['COURSE'].">".$Courses['COURSE']."</option>";
+                      $courseDetails = $Courses['COURSE'];?>
+                      <option value="<?=$courseDetails?>"><?=$courseDetails?></option><?php
                       $i++;
                     }
                     ?>
@@ -209,7 +210,7 @@
         editable: [[0,'id'],[1,'REG_NO'], [2,'Name'],[3, 'COURSE'],[4,'GRADE'],[5,'ACTION']]
       },
       hideIdentifier: false,
-      url: '<?=base_url(); ?>admin/balancesheet/update'   
+      url: '<?=base_url(); ?>admin/result/update'   
     });
   });
 
@@ -220,7 +221,7 @@
    if(branch_id!="")
    {
     $.ajax({
-     url:"<?=base_url(); ?>admin/balancesheet/filter",
+     url:"<?=base_url(); ?>admin/result/filter",
      method:"POST",
      dataType:"html",
      data:{branch_id:branch_id},
