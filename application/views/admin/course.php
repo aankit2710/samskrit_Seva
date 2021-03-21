@@ -67,6 +67,9 @@
                       <!-- <span style="margin-right: 745px;"><strong>Date :</strong>  <?= date('Y-m-d'); ?></span> -->
                       <button onclick="javascript:window.print();" class="btn btn-info">PDF</button>
                       <a id="export_csv" href="#" class="btn btn-danger"><i class="fas fa-plus"></i> Export</a>
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                                Add Course Details
+                              </button>
                     </div>
                   </div>
                   <div class="card-body">
@@ -134,16 +137,10 @@
                                     <div class="row">
                                       <div class="col-md-4">
                                         <div class="row">
-                                          <div class="col-md-8">
+                                          <div class="col-md-12">
                                             <div class="form-group">
-                                              <label for="reg_name">First Name</label>
-                                              <input type="text" name="reg_name" value="<?= $balancesheet['student_profile_name']; ?>" class="form-control" id="reg_name" placeholder="Enter First Name">
-                                            </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <div class="form-group">
-                                              <label for="reg_last_name">Last Name</label>
-                                              <input type="text" name="reg_last_name" value="<?= $balancesheet['student_profile_lastname']; ?>" class="form-control" id="reg_last_name" placeholder="Last Name">
+                                              <label for="reg_name">Full Name</label>
+                                              <input type="text" name="reg_name" value="<?= $balancesheet['student_profile_name']." ".$balancesheet['student_profile_lastname']; ?>" class="form-control" id="reg_name" placeholder="Enter First Name">
                                             </div>
                                           </div>
                                         </div>
@@ -300,6 +297,7 @@
                                          <select name="reg_medium" id="reg_medium" class="custom-select">
                                               <option value="" selected>Select Medium of Study (books)</option>
                                               <option <?php $balancesheet['student_course_medium_study'] == "Tamil"  ? "selected" : ''; ?> value="Tamil">Tamil</option>
+                                              <option <?php $balancesheet['student_course_medium_study'] == "Samskrit"  ? "selected" : ''; ?> value="Samskrit">Samskrit</option>
                                               <option <?php $balancesheet['student_course_medium_study'] == "English"  ? "selected" : ''; ?> value="English">English</option>
                                             </select>
                                         </div>
