@@ -133,14 +133,14 @@
                                   <h5>Course Id: <?= $balancesheet['student_course_courseid']; ?></h5>
                                 </div>
                                 <div class="modal-body">
-                                  <form autocomplete="off" id="registrationForm" action="" method="post">
+                                  <form autocomplete="off" id="registrationForm" action="<?=base_url()?>admin/course/edit/<?=$balancesheet["student_course_courseid"];?>" method="post">
                                     <div class="row">
                                       <div class="col-md-4">
                                         <div class="row">
                                           <div class="col-md-12">
                                             <div class="form-group">
                                               <label for="reg_name">Full Name</label>
-                                              <input type="text" name="reg_name" value="<?= $balancesheet['student_profile_name']." ".$balancesheet['student_profile_lastname']; ?>" class="form-control" id="reg_name" placeholder="Enter First Name">
+                                              <input type="text" name="reg_name" value="<?= $balancesheet['student_profile_name']?>" class="form-control" id="reg_name" placeholder="Enter First Name">
                                             </div>
                                           </div>
                                         </div>
@@ -148,16 +148,16 @@
                                       <div class="col-md-4">
                                         <div class="form-group">
                                           <label for="reg_dob">Date of Birth</label>
-                                          <input type="date" class="form-control" value="student_profile_dob" name="reg_dob" id="reg_dob" placeholder="Enter Date of Birth">
+                                          <input type="date" class="form-control" value="<?=$balancesheet['student_profile_dob']?>" name="reg_dob" id="reg_dob" placeholder="Enter Date of Birth">
                                         </div>
                                       </div>
                                       <div class="col-md-4">
                                         <div class="form-group">
                                           <label for="reg_gender">Gender</label>
                                           <select name="reg_gender" class="custom-select">
-                                              <option value="" selected>Select Gender</option>
-                                              <option <?php $balancesheet['student_profile_gender'] == "Male"  ? "selected" : ''; ?> value="Male">Male</option>
-                                              <option <?php $balancesheet['student_profile_gender'] == "Female"  ? "selected" : ''; ?> value="Female">Female</option>
+                                              <option value="">Select Gender</option>
+                                              <option <?php if($balancesheet['student_profile_gender'] == "Male"){ echo "selected";} ?> value="Male">Male</option>
+                                              <option <?php if($balancesheet['student_profile_gender'] == "Female"){ echo "selected";} ?> value="Female">Female</option>
                                             </select>
                                         </div>
                                       </div>
@@ -196,24 +196,24 @@
                                           <label for="reg_district">District</label>
                                           <select name="reg_district" id="reg_district" class="custom-select">
                                             <option value="" selected>Select District</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Chengleput"  ? "selected" : ''; ?> value="Chengleput">Chengleput</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Chennai"  ? "selected" : ''; ?> value="Chennai">Chennai</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Cuddalore"  ? "selected" : ''; ?> value="Cuddalore">Cuddalore</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Dharmapuri"  ? "selected" : ''; ?> value="Dharmapuri">Dharmapuri</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Kallakurichi"  ? "selected" : ''; ?> value="Kallakurichi">Kallakurichi</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Kanchipuram"  ? "selected" : ''; ?> value="Kanchipuram">Kanchipuram</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Krishnagiri"  ? "selected" : ''; ?> value="Krishnagiri">Krishnagiri</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Namakkal"  ? "selected" : ''; ?> value="Namakkal">Namakkal</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Puducherry"  ? "selected" : ''; ?> value="Puducherry">Puducherry</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Ranipet"  ? "selected" : ''; ?> value="Ranipet">Ranipet</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Salem"  ? "selected" : ''; ?> value="Salem">Salem</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Thiruvallur"  ? "selected" : ''; ?> value="Thiruvallur">Thiruvallur</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Tirupattur"  ? "selected" : ''; ?> value="Tirupattur">Tirupattur</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Tiruvannamalai"  ? "selected" : ''; ?> value="Tiruvannamalai">Tiruvannamalai</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Vellore"  ? "selected" : ''; ?> value="Vellore">Vellore</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "Villupuram"  ? "selected" : ''; ?> value="Villupuram">Villupuram</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "others-districts-tn"  ? "selected" : ''; ?> value="others-districts-tn">Other Districts of Tamilnadu</option>
-                                            <option <?php $balancesheet['student_profile_district'] == "others"  ? "selected" : ''; ?> value="others">Other States Of India</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Chengleput" ){ echo "selected";} ?> value="Chengleput">Chengleput</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Chennai" ){ echo "selected";} ?> value="Chennai">Chennai</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Cuddalore" ){ echo "selected";} ?> value="Cuddalore">Cuddalore</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Dharmapuri" ){ echo "selected";} ?> value="Dharmapuri">Dharmapuri</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Kallakurichi" ){ echo "selected";} ?> value="Kallakurichi">Kallakurichi</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Kanchipuram" ){ echo "selected";} ?> value="Kanchipuram">Kanchipuram</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Krishnagiri" ){ echo "selected";} ?> value="Krishnagiri">Krishnagiri</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Namakkal" ){ echo "selected";} ?> value="Namakkal">Namakkal</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Puducherry" ){ echo "selected";} ?> value="Puducherry">Puducherry</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Ranipet" ){ echo "selected";} ?> value="Ranipet">Ranipet</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Salem" ){ echo "selected";} ?> value="Salem">Salem</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Thiruvallur" ){ echo "selected";} ?> value="Thiruvallur">Thiruvallur</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Tirupattur" ){ echo "selected";} ?> value="Tirupattur">Tirupattur</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Tiruvannamalai" ){ echo "selected";} ?> value="Tiruvannamalai">Tiruvannamalai</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Vellore" ){ echo "selected";} ?> value="Vellore">Vellore</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "Villupuram" ){ echo "selected";} ?> value="Villupuram">Villupuram</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "others-districts-tn" ){ echo "selected";} ?> value="others-districts-tn">Other Districts of Tamilnadu</option>
+                                            <option <?php if($balancesheet['student_profile_district'] == "others" ){ echo "selected";} ?> value="others">Other States Of India</option>
                                           </select>
                                         </div>
                                       </div>
@@ -222,48 +222,48 @@
                                           <label for="reg_state">State</label>
                                           <select name="reg_state" id="reg_state" class="custom-select">
                                             <option value="">Select State</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Andaman & Nicobar"  ? "selected" : ''; ?>>Andaman & Nicobar</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Andhra Pradesh"  ? "selected" : ''; ?>>Andhra Pradesh</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Arunachal Pradesh"  ? "selected" : ''; ?>>Arunachal Pradesh</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Assam"  ? "selected" : ''; ?>>Assam</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Bihar"  ? "selected" : ''; ?>>Bihar</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Chandigarh"  ? "selected" : ''; ?>>Chandigarh</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Chhattisgarh"  ? "selected" : ''; ?>>Chhattisgarh</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Dadra & Nagar Haveli"  ? "selected" : ''; ?>>Dadra & Nagar Haveli</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Daman & Diu"  ? "selected" : ''; ?>>Daman & Diu</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Delhi"  ? "selected" : ''; ?>>Delhi</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Goa"  ? "selected" : ''; ?>>Goa</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Gujarat"  ? "selected" : ''; ?>>Gujarat</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Haryana"  ? "selected" : ''; ?>>Haryana</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Himachal Pradesh"  ? "selected" : ''; ?>>Himachal Pradesh</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Jammu & Kashmir"  ? "selected" : ''; ?>>Jammu & Kashmir</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Jharkhand"  ? "selected" : ''; ?>>Jharkhand</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Karnataka"  ? "selected" : ''; ?>>Karnataka</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Kerala"  ? "selected" : ''; ?>>Kerala</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Lakshadweep"  ? "selected" : ''; ?>>Lakshadweep</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Madhya Pradesh"  ? "selected" : ''; ?>>Madhya Pradesh</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Maharashtra"  ? "selected" : ''; ?>>Maharashtra</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Manipur"  ? "selected" : ''; ?>>Manipur</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Meghalaya"  ? "selected" : ''; ?>>Meghalaya</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Mizoram"  ? "selected" : ''; ?>>Mizoram</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Nagaland"  ? "selected" : ''; ?>>Nagaland</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Orissa"  ? "selected" : ''; ?>>Orissa</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Pondicherry"  ? "selected" : ''; ?>>Pondicherry</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Punjab"  ? "selected" : ''; ?>>Punjab</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Rajasthan"  ? "selected" : ''; ?>>Rajasthan</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Sikkim"  ? "selected" : ''; ?>>Sikkim</option>
-                                            <option value="Tamil Nadu" <?php $balancesheet['student_profile_state'] == "Tamil Nadu"  ? "selected" : ''; ?>>Tamil Nadu</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Tripura"  ? "selected" : ''; ?>>Tripura</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Uttar Pradesh"  ? "selected" : ''; ?>>Uttar Pradesh</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "Uttaranchal"  ? "selected" : ''; ?>>Uttaranchal</option>
-                                            <option <?php $balancesheet['student_profile_state'] == "West Bengal"  ? "selected" : ''; ?>>West Bengal</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Andaman & Nicobar" ) {echo "selected";} ?>>Andaman & Nicobar</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Andhra Pradesh" ) {echo "selected";} ?>>Andhra Pradesh</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Arunachal Pradesh" ) {echo "selected";} ?>>Arunachal Pradesh</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Assam" ) {echo "selected";} ?>>Assam</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Bihar" ) {echo "selected";} ?>>Bihar</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Chandigarh" ) {echo "selected";} ?>>Chandigarh</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Chhattisgarh" ) {echo "selected";} ?>>Chhattisgarh</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Dadra & Nagar Haveli" ) {echo "selected";} ?>>Dadra & Nagar Haveli</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Daman & Diu" ) {echo "selected";} ?>>Daman & Diu</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Delhi" ) {echo "selected";} ?>>Delhi</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Goa" ) {echo "selected";} ?>>Goa</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Gujarat" ) {echo "selected";} ?>>Gujarat</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Haryana" ) {echo "selected";} ?>>Haryana</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Himachal Pradesh" ) {echo "selected";} ?>>Himachal Pradesh</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Jammu & Kashmir" ) {echo "selected";} ?>>Jammu & Kashmir</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Jharkhand" ) {echo "selected";} ?>>Jharkhand</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Karnataka" ) {echo "selected";} ?>>Karnataka</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Kerala" ) {echo "selected";} ?>>Kerala</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Lakshadweep" ) {echo "selected";} ?>>Lakshadweep</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Madhya Pradesh" ) {echo "selected";} ?>>Madhya Pradesh</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Maharashtra" ) {echo "selected";} ?>>Maharashtra</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Manipur" ) {echo "selected";} ?>>Manipur</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Meghalaya" ) {echo "selected";} ?>>Meghalaya</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Mizoram" ) {echo "selected";} ?>>Mizoram</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Nagaland" ) {echo "selected";} ?>>Nagaland</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Orissa" ) {echo "selected";} ?>>Orissa</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Pondicherry" ) {echo "selected";} ?>>Pondicherry</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Punjab" ) {echo "selected";} ?>>Punjab</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Rajasthan" ) {echo "selected";} ?>>Rajasthan</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Sikkim" ) {echo "selected";} ?>>Sikkim</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Tamil Nadu" ) {echo "selected";} ?>>Tamil Nadu</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Tripura" ) {echo "selected";} ?>>Tripura</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Uttar Pradesh" ) {echo "selected";} ?>>Uttar Pradesh</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "Uttaranchal" ) {echo "selected";} ?>>Uttaranchal</option>
+                                            <option <?php if($balancesheet['student_profile_state'] == "West Bengal" ) {echo "selected";} ?>>West Bengal</option>
                                           </select>
                                         </div>
                                       </div>
                                       <div class="col-md-3">
                                         <div class="form-group">
                                           <label for="reg_pincode">Pincode</label>
-                                          <input type="number" onKeyPress="if(this.value.length==6) return false;" min="110001" max="859999" value="<?$balancesheet['student_profile_pincode']?>" class="form-control numbers-only" name="reg_pincode" id="reg_pincode" placeholder="Enter Pincode">
+                                          <input type="number" onKeyPress="if(this.value.length==6) return false;" min="110001" max="859999" value="<?=$balancesheet['student_profile_pincode']?>" class="form-control numbers-only" name="reg_pincode" id="reg_pincode" placeholder="Enter Pincode">
                                         </div>
                                       </div>
                                       <div class="col-md-3">
@@ -295,10 +295,10 @@
                                         <div class="form-group">
                                           <label for="reg_medium">Medium of Study (books - only for Module 1)</label>
                                          <select name="reg_medium" id="reg_medium" class="custom-select">
-                                              <option value="" selected>Select Medium of Study (books)</option>
-                                              <option <?php $balancesheet['student_course_medium_study'] == "Tamil"  ? "selected" : ''; ?> value="Tamil">Tamil</option>
-                                              <option <?php $balancesheet['student_course_medium_study'] == "Samskrit"  ? "selected" : ''; ?> value="Samskrit">Samskrit</option>
-                                              <option <?php $balancesheet['student_course_medium_study'] == "English"  ? "selected" : ''; ?> value="English">English</option>
+                                              <option value="">Select Medium of Study (books)</option>
+                                              <option <?php if($balancesheet['student_course_medium_study'] == "Tamil") {echo "selected" ;} ?> value="Tamil">Tamil</option>
+                                              <option <?php if($balancesheet['student_course_medium_study'] == "Samskrit") {echo "selected" ;}?> value="Samskrit">Samskrit</option>
+                                              <option <?php if($balancesheet['student_course_medium_study'] == "English") {echo "selected" ;}?> value="English">English</option>
                                             </select>
                                         </div>
                                       </div>
@@ -306,9 +306,9 @@
                                         <div class="form-group">
                                           <label for="reg_examinationmonth">Examination Month</label>
                                           <select name="reg_examinationmonth" class="custom-select">
-                                              <option value="" selected>Select Month</option>
-                                              <option <?php $balancesheet['student_course_month'] == "Jan"  ? "selected" : ''; ?> value="Jan">Jan</option>
-                                              <option <?php $balancesheet['student_course_month'] == "July"  ? "selected" : ''; ?> value="July">July</option>
+                                              <option value="">Select Month</option>
+                                              <option <?php if($balancesheet['student_course_month'] == "January") {echo "selected" ;}?> value="Jan">January</option>
+                                              <option <?php if($balancesheet['student_course_month'] == "July") {echo "selected" ;}?> value="July">July</option>
                                             </select>
                                         </div>
                                       </div>
@@ -316,17 +316,18 @@
                                         <div class="form-group">
                                           <label for="reg_preftime">Preferred Time for Class</label>
                                           <select name="reg_preftime" class="custom-select">
-                                              <option value="" selected>Select Preferred Time for Class</option>
-                                              <option <?php $balancesheet['student_course_preferredtime'] == "Morning"  ? "selected" : ''; ?> value="Morning">Morning</option>
-                                              <option <?php $balancesheet['student_course_preferredtime'] == "Evening"  ? "selected" : ''; ?> value="Evening">Evening</option>
-                                              <option <?php $balancesheet['student_course_preferredtime'] == "Anytime"  ? "selected" : ''; ?> value="Anytime">Anytime</option>
+                                              <option value="" >Select Preferred Time for Class</option>
+                                              <option  <?php if($balancesheet['student_course_preferredtime'] == "Morning") {echo "selected" ;}?>  value="Morning">Morning</option>
+                                              <option  <?php if($balancesheet['student_course_preferredtime'] == "Evening") {echo "selected" ;}?>  value="Evening">Evening</option>
+                                              <option  <?php if($balancesheet['student_course_preferredtime'] == "Anytime") {echo "selected" ;}?>  value="Anytime">Anytime</option>
                                             </select>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="row">
                                       <div class="col-md-12 text-right">
-                                        
+                                      <input type="text" class="form-control" value="<?= $balancesheet['student_course_id'] ?>" name="student_course_id" hidden>
+                                      <input type="text" class="form-control" value="<?= $balancesheet['student_profile_id'] ?>" name="student_profile_id" hidden>
                                       <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                                       <button type="submit" name="register_form_submit" id="register-now" class="btn btn-success submit-btn btn-bold">Proceed</button>
                                        

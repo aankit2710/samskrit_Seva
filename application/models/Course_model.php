@@ -4,10 +4,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Course_model extends CI_Model {
 
 
-	function update($id,$form_array)
+	function updateCourse($id,$form_array)
 	{
-		$this->db->where('id',$id);
-		$update = $this->db->update('praksopanam_jan_2021_Courses',$form_array);
+		$this->db->where('student_course_id',$id);
+		$update = $this->db->update('wp_an34bk_student_course_info',$form_array);
+		return $update;
+
+	}
+
+
+	function updateProfile($id,$form_array)
+	{
+		$this->db->where('student_profile_id',$id);
+		$update = $this->db->update('wp_an34bk_student_profile',$form_array);
 		return $update;
 
 	}
