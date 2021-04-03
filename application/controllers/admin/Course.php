@@ -82,11 +82,6 @@ class Course extends CI_Controller {
 
 		$create = $this->Course_model->updateCourse($id,$form_array);
 
-		print_r($_POST);
-
-		echo $_POST['reg_name'];
-		exit;
-
 		//db column name = form post input
 		$form_array1['student_profile_name'] = $this->input->post('reg_name');
 		$form_array1['student_profile_dob'] = $this->input->post('reg_dob');
