@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		// $admin = $this->session->userdata('admin');
+		$admin = $this->session->userdata('admin');
 		// $members = $this->db->count_all_results('members');
 		// $branch = $this->db->count_all_results('branch');
 		// $group = $this->db->count_all_results('group');
@@ -59,13 +59,17 @@ class Home extends CI_Controller {
 
 		// $output = array("members"=>$members,"branch"=>$branch,"group"=>$group,"total_loan_amount"=>$query->row()->loan_amount,"total_intrest"=>$query1->row()->total_intrest,"emi_amount"=>$query2->row()->emi_amount,"pending_amount"=>$query3->row()->emi_amount,"total_loan"=>$total_loan,"active_total_loan"=>$active_total_loan,"total_expense"=>$query4->row()->amount,"other_income"=>$query5->row()->amount);
 		// $data['output'] = $output;
-		$this->load->view('admin/index');
+		$data['type'] = $admin['type'];
+		$this->load->view('admin/index', $data);
 	}
 
 
 	public function profile()
 	{
-		$var = $this->Admin_model->get_single_record(1);
+		$admin = $this->session->userdata('admin');
+		$data['type'] = $admin['type'];
+		$admin = $this->session->userdata('admin');
+		$var = $this->Admin_model->get_single_record($admin['admin_id']);
 
 		if(empty($var))
 		{
@@ -119,7 +123,7 @@ class Home extends CI_Controller {
 					$error = $this->upload->display_errors();
 					$data['errorImageUpload'] = $error;
 					$this->session->set_flashdata('msg',$data['errorImageUpload']);
-					redirect(base_url().'admin/home/profile/1');
+					redirect(base_url().'admin/home/profile/'.$admin['admin_id'].'/');
 				}
 
 			}	
@@ -136,7 +140,7 @@ class Home extends CI_Controller {
 					$form_array['password'] = md5($this->input->post('password'));
 				}else{
 					$this->session->set_flashdata('msg',"Confirm Password not Match");
-					redirect(base_url().'admin/home/profile/1');
+					redirect(base_url().'admin/home/profile/'.$admin['admin_id'].'/');
 				}
 			}
 
@@ -147,17 +151,17 @@ class Home extends CI_Controller {
 			$form_array['status'] = $this->input->post('status');
 			$form_array['updated_date'] = date('Y-m-d H:i:s');
 
-			$create = $this->Staff_model->update(1,$form_array);
+			$create = $this->Staff_model->update($admin['admin_id'],$form_array);
 
 			if($create){
 
 				$this->session->set_flashdata('success','Profile Updated Successfully');
-				redirect(base_url().'admin/home/profile/1');
+				redirect(base_url().'admin/home/profile/'.$admin['admin_id'].'/');
 
 			}else{
 
 				$this->session->set_flashdata('msg','Something Went Wrong');
-				redirect(base_url().'admin/home/profile/1');
+				redirect(base_url().'admin/home/profile/'.$admin['admin_id'].'/');
 			}
 
 		}else{

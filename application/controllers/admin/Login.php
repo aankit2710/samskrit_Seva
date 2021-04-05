@@ -27,6 +27,7 @@ class Login extends CI_Controller {
 				if($admin['password']==md5($password)){
 					$adminArray['admin_id'] = $admin['id'];
 					$adminArray['username'] = $admin['username'];
+					$adminArray['type'] = $admin['type'];
 					$this->session->set_userdata('admin',$adminArray);
 					redirect(base_url().'admin/home/index');
 

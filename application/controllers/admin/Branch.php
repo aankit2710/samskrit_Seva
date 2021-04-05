@@ -21,6 +21,8 @@ class Branch extends CI_Controller {
 	public function index()
 	{
 		
+		$admin = $this->session->userdata('admin');
+		$data['type'] = $admin['type'];
 		$allCategory = $this->Branch_model->getAllCategory();
 		$data['allCategory'] = $allCategory;
 		$this->load->view('admin/manage-branch',$data);

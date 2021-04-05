@@ -20,7 +20,9 @@ class Import extends CI_Controller {
 
 function index()
 {
-  $this->load->view('admin/import');
+    $admin = $this->session->userdata('admin');
+		$data['type'] = $admin['type'];
+    $this->load->view('admin/import');
 }
 
 function create()

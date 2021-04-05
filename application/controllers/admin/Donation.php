@@ -21,6 +21,8 @@ class Donation extends CI_Controller {
 	public function index()
 	{
 
+		$admin = $this->session->userdata('admin');
+		$data['type'] = $admin['type'];
 		$this->form_validation->set_rules("month","month","trim");
 		$this->form_validation->set_rules("year","year","trim");
 		$this->form_validation->set_rules("course","course","trim");

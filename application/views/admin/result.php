@@ -277,7 +277,7 @@
 <script>
   $('#export_csv').on('click',function(){
     $('#example').table2csv({
-      file_name: 'jqueryscript.csv',
+      file_name: 'result.csv',
       header_body_space: 0
     });
   })
