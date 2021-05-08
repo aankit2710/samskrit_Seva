@@ -73,7 +73,7 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <table id="example" class="table table-bordered table-striped export">
+                  <table id="example" class="table table-bordered table-striped export">
                       <thead>
                         <tr>
                           <th>Course ID</th>
@@ -472,6 +472,64 @@
                         ?>
                       </tbody>
                     </table>
+                    <table id="example2" class="d-none">
+                      <thead>
+                        <tr>
+                          <th>Course ID</th>
+                          <th>Course Name</th>
+                          <th>Student Name</th>
+                          <th>Address</th>
+                          <th>Occupation</th>
+                          <th>Qualification</th>
+                          <th>Gender</th>
+                          <th>Phone</th>
+                          <th>Email</th>
+                          <th>DOB</th>
+                          <th>Medium Study</th>
+                          <th>Exam Month</th>
+                          <th>Course Preferred Time</th>
+                          <th>Registered On</th>
+                          <th>Transaction ID</th>
+                          <th>Status</th>
+                          <th>Course Amount</th>
+                          <th>Net Amount</th>
+                          <th>Edit</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        $i = 1;
+                        foreach ($getAllCourse as $balancesheet) {
+                        ?>
+                          <tr>
+                            <td><?= $balancesheet['student_course_courseid']; ?></td>
+                            <td><?= $balancesheet['student_course_coursename']; ?></td>
+                            <td><?= $balancesheet['student_profile_name']; ?> <?= $balancesheet['student_profile_lastname']; ?></td>
+                            <td><?= $balancesheet['student_profile_address']; ?>, <?= $balancesheet['student_profile_district']; ?>, <?= $balancesheet['student_profile_state']; ?>, <?= $balancesheet['student_profile_pincode']; ?></td>
+                            <td><?= $balancesheet['student_profile_occupation']; ?></td>
+                            <td><?= $balancesheet['student_profile_qualification']; ?></td>
+                            <td><?= $balancesheet['student_profile_gender']; ?></td>
+                            <td><?= $balancesheet['student_profile_phone']; ?></td>
+                            <td><?= $balancesheet['student_profile_email']; ?></td>
+                            <td><?= $balancesheet['student_profile_dob']; ?></td>
+                            <td><?= $balancesheet['student_course_medium_study']; ?></td>
+                            <td><?= $balancesheet['student_course_month']; ?></td>
+                            <td><?= $balancesheet['student_course_preferredtime']; ?></td>
+                            <td><?= $balancesheet['student_course_registedon']; ?></td>
+                            <td><?= $balancesheet['student_course_ss_txnid']; ?></td>
+                            <td><?= ucfirst($balancesheet['student_course_paymentstatus']); ?></td>
+                            <td>Rs. <?= $balancesheet['student_course_amount']; ?></td>
+                            <td>Rs. <?= $balancesheet['student_course_net_amount']; ?></td>
+                            <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default<?= $balancesheet['student_course_courseid']; ?>">
+                                edit Course Details
+                              </button></td>
+                          </tr>
+                        <?php
+                          $i++;
+                        }
+                        ?>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               <?php
@@ -588,7 +646,7 @@
 <script src="https://www.jqueryscript.net/demo/table-csv-converter/table2csv.js"></script>
 <script>
   $('#export_csv').on('click',function(){
-    $('#example').table2csv({
+    $('#example2').table2csv({
       file_name: 'course.csv',
       header_body_space: 0
     });

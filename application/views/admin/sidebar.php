@@ -56,7 +56,14 @@
                  <p>Courses</p>
                </a>
              </li>
+             <li class="nav-item">
+               <a href="<?= base_url() . 'admin/import/course'; ?>" class="nav-link">
+                 <i class="far fa-circle nav-icon text-danger"></i>
+                 <p>Import</p>
+               </a>
+             </li>
            </ul>
+           
          </li>
          <li class="nav-item has-treeview">
            <a href="#" class="nav-link">
@@ -75,7 +82,7 @@
              </li>
            </ul>
          </li>
-         <?php if($type === 'result'){ ?>
+         <?php if($type === 'result'  || $type === 'admin'){ ?>
          <li class="nav-item has-treeview">
            <a href="#" class="nav-link">
              <i class="nav-icon far fa-circle"></i>
@@ -104,7 +111,7 @@
                </a>
              </li>
              <li class="nav-item">
-               <a href="<?= base_url() . 'admin/import'; ?>" class="nav-link">
+               <a href="<?= base_url() . 'admin/import/index'; ?>" class="nav-link">
                  <i class="far fa-circle nav-icon text-danger"></i>
                  <p>Import</p>
                </a>

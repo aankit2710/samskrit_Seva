@@ -6,6 +6,7 @@ class Import extends CI_Controller {
  {
   parent::__construct();
   	$admin = $this->session->userdata('admin');
+    $data['type'] = $admin['type'];
   $this->load->library('csvimport');
   $this->load->library('form_validation');
   $this->load->helper('common_helper');
@@ -22,13 +23,22 @@ function index()
 {
     $admin = $this->session->userdata('admin');
 		$data['type'] = $admin['type'];
-    $this->load->view('admin/import');
+    $this->load->view('admin/import', $data);
+}
+
+function course()
+{
+    $admin = $this->session->userdata('admin');
+		$data['type'] = $admin['type'];
+    $this->load->view('admin/import-course', $data);
 }
 
 function create()
 {
 
-  $select_type = $this->input->post('select_type');
+  $admin = $this->session->userdata('admin');
+    $data['type'] = $admin['type'];
+    $select_type = $this->input->post('select_type');
   $file_data = $this->csvimport->get_array($_FILES["import_csv"]["tmp_name"]);
 
   function format_date($date)
@@ -79,6 +89,58 @@ if( $select_type == 'result' ){
 
   $this->session->set_flashdata('success','Imported Successfully');
   redirect(base_url().'admin/import/');
+
+}
+
+function createCourse()
+{
+
+  $admin = $this->session->userdata('admin');
+    $data['type'] = $admin['type'];
+    $select_type = $this->input->post('select_type');
+  $file_data = $this->csvimport->get_array($_FILES["import_csv"]["tmp_name"]);
+
+  function format_date_2($date)
+  {
+    $date=date_create($date);
+    return date_format($date,"Y-m-d");
+  }
+
+  foreach($file_data as $row)
+  {
+    
+    $form_array['student_course_id'] = $row["student_course_id"];
+    $form_array['student_course_student_id']  = $row["student_course_student_id"];
+    $form_array['student_course_coursename'] = $row["student_course_coursename"];
+    $form_array['student_course_month']= $row["student_course_month"];
+    $form_array['student_course_preferredtime']= $row["student_course_preferredtime"];
+    $form_array['student_course_registedon']   = $row["student_course_registedon"];
+    $form_array['student_course_paymentstatus']   = $row["student_course_paymentstatus"];
+    $form_array['student_course_status']   = $row["student_course_status"];
+    $form_array['student_course_registeredby']   = $row["student_course_registeredby"];
+    $form_array['student_course_paymentmode']   = $row["student_course_paymentmode"];
+    $form_array['student_course_courseid']   = $row["student_course_courseid"];
+    $form_array['student_course_amount']   = $row["student_course_amount"];
+    $form_array['student_course_net_amount']   = $row["student_course_net_amount"];
+    $form_array['student_course_medium_study']   = $row["student_course_medium_study"];
+    $form_array['student_course_ss_txnid']   = $row["student_course_ss_txnid"];
+    $form_array['student_course_payment_date']   = $row["student_course_payment_date"];
+    $form_array['student_course_iswelcome_email_sent']   = $row["student_course_iswelcome_email_sent"];
+    $form_array['student_course_lastupdatedon']   = $row["student_course_lastupdatedon"];
+    $form_array['student_course_lastupdatedby']   = $row["student_course_lastupdatedby"];
+    
+
+    $last_id = $this->Member_model->import_course($form_array,$select_type);
+
+    if($last_id)
+    {
+      
+    }
+
+  }
+
+  $this->session->set_flashdata('success','Imported Successfully');
+  redirect(base_url().'admin/import/course/');
 
 }
 

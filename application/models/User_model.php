@@ -21,7 +21,10 @@ class User_model extends CI_Model {
 
 	public function getAllResult12()
 	{						$this->db->order_by("student_profile_id", "desc");
-		$return_category = $this->db->get('wp_an34bk_student_profile')->result_array();
+		$return_category = $this->db->select('*')
+		->from('wp_an34bk_student_course_info i')
+		->join('wp_an34bk_student_profile p','p.student_profile_id = i.student_course_student_id',"inner")
+		->get()->result_array();
 		return $return_category;
 	}
 

@@ -78,7 +78,7 @@
                           <th>Phone</th>
                           <th>Email</th>
                           <th>Address</th>
-                          <th>Action</th>
+                          <th>Courde Id</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -92,7 +92,7 @@
                             <td><?= $balancesheet['student_profile_phone'] ?></td>
                             <td><?= $balancesheet['student_profile_email'] ?></td>
                             <td><?= $balancesheet['student_profile_address'] ?></td>
-                            <td><i class="btn btn-primary fa fa-edit"></i></td>
+                            <td><?= $balancesheet['student_course_courseid']; ?></td>
                           </tr>
                         <?php
                           $i++;
@@ -212,7 +212,6 @@
     }
   </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://www.jqueryscript.net/demo/table-csv-converter/table2csv.js"></script>
 <script>
   $('#export_csv').on('click',function(){

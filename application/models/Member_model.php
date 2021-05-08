@@ -69,6 +69,14 @@ class Member_model extends CI_Model {
 		return $this->db->insert_id();
 	}
 
+	public function import_course($form_array, $select_type)
+	{
+		
+		$table_name = "wp_an34bk_student_course_info";
+		$insert = $this->db->insert($table_name,$form_array);
+		return $this->db->insert_id();
+	}
+
 	public function loan_emi($form_array)
 	{
 		$insert = $this->db->insert('loan_emi',$form_array);
